@@ -1,0 +1,8 @@
+{
+  "name": "app1/categorias",
+  "autoload": {
+    "psr-4": {
+      "App\\":"app/"
+    }
+  }
+}
