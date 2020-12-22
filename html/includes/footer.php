@@ -11,6 +11,20 @@
         <script src="https://cdn.jsdel.ivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivrnet/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
     -->
+    
+        <style>
+            .container-tb{
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
+            @media only screen and (max-width: 500px) {
+                .container-tb{
+                    padding: 30px;
+                    margin: 0 auto;
+                }
+            }
+        </style>
     </body>
 
 </html>
