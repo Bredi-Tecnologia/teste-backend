@@ -35,6 +35,5 @@ class Produto
    */
   public function cadastrar()
   {
-    
   }
 }

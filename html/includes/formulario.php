@@ -15,17 +15,17 @@
       <div class="form-group">
         <div class="mb-3">
           <label for="nome" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="nome" placeholder="Nome do produto">
+          <input name="nome" type="text" class="form-control" id="nome" placeholder="Nome do produto">
         </div>
 
         <div class="mb-3">
           <label for="preco" class="form-label">Preço</label>
-          <input type="number" class="form-control" id="preco" placeholder="Preço do produto">
+          <input name="preco" type="number" class="form-control" id="preco" placeholder="Preço do produto">
         </div>
 
         <div class="mb-3">
           <label for="categoria" class="form-label">Categoria</label>
-          <select class="form-select" aria-label="Default select example">
+          <select name="categoria" class="form-select" aria-label="Default select example">
             <option selected>Selecionar</option>
             <!-- <option value="1">One</option>
             <option value="2">Two</option>
