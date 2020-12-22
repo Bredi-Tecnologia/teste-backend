@@ -10,7 +10,7 @@ class Produto
 {
 
   /**
-   * Indentificador de do produto
+   * Indentificador do produto
    * @var integer
    */
   public $id;
@@ -42,7 +42,7 @@ class Produto
     // INSERIR PRODUTO NO BANCO DE DADOS
     $db = new Database('produtos');
 
-    $db = new Database('vagas');
+    $db = new Database('produtos');
     $this->id = $db->insert([
       'nome' => $this->nome,
       'preco' => $this->preco,
@@ -54,7 +54,7 @@ class Produto
   }
 
   /**
-   * Método responsável por obter as vagas do banco de dados
+   * Método responsável por obter os produtos do banco de dados
    * @param  string $where
    * @param  string $order
    * @param  string $limit
