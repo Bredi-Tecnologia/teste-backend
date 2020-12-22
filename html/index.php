@@ -4,7 +4,9 @@ $user = "root";
 $pass = "secret";
 $db = "app1";
 
+include __DIR__ . '/vendor/autoload.php';
 include __DIR__ . '/includes/header.php';
+include __DIR__ . '/includes/listar.php';
 include __DIR__ . '/includes/footer.php';
 
 try {
