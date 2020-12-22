@@ -8,6 +8,7 @@ class Produto
     public $categoria;
     public  $preco;
 
+
     /**
      * @return mixed
      */
@@ -56,14 +57,20 @@ class Produto
         $this->nome = $nome;
     }
 
+    public static function getConexao()
+    {
+        include($_SERVER['DOCUMENT_ROOT'].$_SERVER['REQUEST_URI']."app/db_config.php");
+        return $conn;
+    }
+
     /**
      * @param mixed $categoria
      */
     public function setCategoria($categoria)
     {        //para executar com xampp Windows
-        include($_SERVER['DOCUMENT_ROOT'].$_SERVER['REQUEST_URI']."app/db_config.php");
 
-        $stmt = $conn->query("SELECT * FROM categorias where id=$categoria");
+
+        $stmt = $this::getConexao()->query("SELECT * FROM categorias where id=$categoria");
 
         foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $p) {
             $this->categoria = $p['titulo'];
@@ -80,10 +87,7 @@ class Produto
 
     public static function allProdutos()
     {
-        //para executar com xampp Windows
-        include($_SERVER['DOCUMENT_ROOT'].$_SERVER['REQUEST_URI']."app/db_config.php");
-
-        $stmt = $conn->query('SELECT * FROM produtos order by id desc');
+        $stmt = self::getConexao()->query('SELECT * FROM produtos order by id desc');
         $produtos = array();
         foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $p){
             $prod = new Produto();
@@ -100,20 +104,14 @@ class Produto
 
     public static function allCategorias()
     {
-        //para executar com xampp Windows
-        include($_SERVER['DOCUMENT_ROOT'].$_SERVER['REQUEST_URI']."app/db_config.php");
-
-        $stmt = $conn->query('SELECT * FROM categorias');
+        $stmt = self::getConexao()->query('SELECT * FROM categorias');
         $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $categorias;
     }
 
     public static function criarProduto($nome, $categoria, $preco)
     {
-        //para executar com xampp Windows
-        include($_SERVER['DOCUMENT_ROOT'].$_SERVER['REQUEST_URI']."app/db_config.php");
-
-       $stmt = $conn->prepare("INSERT  INTO produtos (nome, categoria_id, preco) VALUES (:nome,:categoria,:preco)");
+       $stmt = self::getConexao()->prepare("INSERT  INTO produtos (nome, categoria_id, preco) VALUES (:nome,:categoria,:preco)");
        $stmt->bindParam(':nome',$nome);
        $stmt->bindParam(':categoria', $categoria);
        $stmt->bindParam(':preco', $preco);
@@ -122,10 +120,7 @@ class Produto
 
     public static function editarProduto($id, $nome, $categoria, $preco)
     {
-        //para executar com xampp Windows
-        include($_SERVER['DOCUMENT_ROOT'].$_SERVER['REQUEST_URI']."app/db_config.php");
-
-        $stmt = $conn->prepare("UPDATE produtos SET nome = :nome, categoria_id = :categoria, preco = :preco WHERE id = :id");
+        $stmt = self::getConexao()->prepare("UPDATE produtos SET nome = :nome, categoria_id = :categoria, preco = :preco WHERE id = :id");
         $stmt->bindParam(':id',$id);
         $stmt->bindParam(':nome',$nome);
         $stmt->bindParam(':categoria', $categoria);
@@ -136,10 +131,7 @@ class Produto
 
     public static function deletaProduto($id)
     {
-        //para executar com xampp Windows
-        include($_SERVER['DOCUMENT_ROOT'].$_SERVER['REQUEST_URI']."app/db_config.php");
-
-        $stmt = $conn->prepare("DELETE FROM produtos WHERE id= :id");
+        $stmt = self::getConexao()->prepare("DELETE FROM produtos WHERE id= :id");
         $stmt->bindParam(':id',$id);
         $stmt->execute();
     }
