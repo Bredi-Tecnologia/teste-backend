@@ -10,7 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Pagina Inicial
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Novo Produto
+Route::post('/novoproduto', 'HomeController@novoProduto')->name('novoproduto');
+
+//Editar Produto
+Route::put('/editarproduto', 'HomeController@editarproduto')->name('editarproduto');
+
+//Deletar Produto
+Route::delete('/editarproduto', 'HomeController@deletaProduto')->name('deletaproduto');
