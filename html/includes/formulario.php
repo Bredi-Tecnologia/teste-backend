@@ -25,7 +25,7 @@
 
         <div class="mb-3">
           <label for="categoria" class="form-label">Categoria</label>
-          <select name="categoria" class="form-select" aria-label="Default select example">
+          <select name="categoria_id" class="form-select" aria-label="Default select example">
             <option selected>Selecionar</option>
             <!-- <option value="1">One</option>
             <option value="2">Two</option>

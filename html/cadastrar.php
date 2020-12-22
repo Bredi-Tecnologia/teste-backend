@@ -5,13 +5,15 @@ include __DIR__ . '/vendor/autoload.php';
 use \App\Entity\Produto;
 
 // Validar post
-if (isset($_POST['nome'], $_POST['preco'], $_POST['categoria'])) {
+if (isset($_POST['nome'], $_POST['preco'], $_POST['categoria_id'])) {
   $novo_produto = new Produto;
   $novo_produto->nome = $_POST['nome'];
   $novo_produto->preco = $_POST['preco'];
-  $novo_produto->categoria = $_POST['categoria'];
+  $novo_produto->categoria_id = $_POST['categoria_id'];
 
-  var_dump($_POST);
+  header('location: index.php?status=success');
+
+  exit;
 }
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/formulario.php';
