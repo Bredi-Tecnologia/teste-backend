@@ -46,10 +46,8 @@ $resultados = strlen($resultados) ? $resultados :
 ?>
 
 <main>
-
-  <?= $mensagem ?>
-
-  <section>
+  <section class="my-3">
+    <?= $mensagem ?>
     <a href="cadastrar.php">
       <button class="btn btn-success my-4">
         Cadastrar Produto
