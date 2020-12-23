@@ -28,9 +28,9 @@ if (!$produto instanceof Produto) {
 //VALIDAÇÃO DO POST
 if (isset($_POST['nome'], $_POST['preco'], $_POST['categoria_id'])) {
 
-  $produto->nome= $_POST['nome'];
+  $produto->nome = $_POST['nome'];
   $produto->preco = $_POST['preco'];
-  $produto->categoria_id= $_POST['categoria_id'];
+  $produto->categoria_id = $_POST['categoria_id'];
   $produto->atualizar();
 
   header('location: index.php?status=success');

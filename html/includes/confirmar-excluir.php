@@ -5,7 +5,7 @@
   <form method="post">
 
     <div class="form-group">
-      <p>Você deseja realmente excluir o produto <strong><?=$produto->nome?></strong>?</p>
+      <p>Você deseja realmente excluir o produto <strong><?= $produto->nome ?></strong>?</p>
     </div>
 
     <div class="form-group">
