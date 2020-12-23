@@ -8,7 +8,7 @@ $ composer install
     bredi_test.sql
    ###  Arquivo para criar e conectar ao banco
    Copia dados de exemplo de .env.example
-        #### .env
+   ``` .env ```
    ### Comando para gerar APP_KEY
 ```sh
 $ php artisan key:generate
