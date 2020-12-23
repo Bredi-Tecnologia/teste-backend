@@ -1,12 +1,10 @@
 <?php
 
-$categorias = array(
-  "2" => "Eletrodomésticos",
-  "3" => "Celulares",
-  "4" => "Alimentos",
-  "5" => "Informática",
-);
+$lista_categorias = array();
 
+foreach ($categorias as $categoria) {
+  $lista_categorias[$categoria->id] = $categoria->titulo;
+}
 
 $mensagem = '';
 switch ($_GET['status']) {
@@ -25,28 +23,27 @@ foreach ($produtos as $produto) {
                       <td>' . $produto->id . '</td>
                       <td>' . $produto->nome . '</td>
                       <td>' . $produto->preco . '</td>
-                      <td>' . $categorias[$produto->categoria_id] . '</td>
+                      <td>' . $lista_categorias[$produto->categoria_id] . '</td>
                       <td>
                         <a href="editar.php?id=' . $produto->id . '">
                           <button type="button" class="btn btn-primary">Editar</button>
                         </a>
+                      </td>
+                      
+                      <td>
                         <a href="excluir.php?id=' . $produto->id . '">
                           <button type="button" class="btn btn-danger">Excluir</button>
                         </a>
                       </td>
-                    </tr>';
+                  </tr>';
 }
 
-$resultados = strlen($resultados) ? $resultados : '<tr>
-                                                       <td colspan="6" class="text-center">
-                                                              Não há produtos
-                                                       </td>
-                                                    </tr>';
+$resultados = strlen($resultados) ? $resultados :
+  '<tr><td colspan="6" class="text-center">Não há produtos</td></tr>';
 
 ?>
 
 <main>
-
   <section>
     <a href="cadastrar.php">
       <button class="btn btn-success my-4">
@@ -63,14 +60,13 @@ $resultados = strlen($resultados) ? $resultados : '<tr>
           <th>Nome</th>
           <th>Preço</th>
           <th>Categoria</th>
-          <th>Ações</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <?= $resultados ?>
       </tbody>
     </table>
-
   </section>
-
 </main>

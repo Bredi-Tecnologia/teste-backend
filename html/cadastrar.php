@@ -3,6 +3,11 @@
 include __DIR__ . '/vendor/autoload.php';
 
 use \App\Entity\Produto;
+use \App\Entity\Categoria;
+
+
+//BUSCAR CATEGORIAS 
+$categorias = Categoria::getCategorias();
 
 // Validar post
 if (isset($_POST['nome'], $_POST['preco'], $_POST['categoria_id'])) {

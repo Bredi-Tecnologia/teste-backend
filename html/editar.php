@@ -5,6 +5,7 @@ require __DIR__ . '/vendor/autoload.php';
 define('TITLE', 'Editar produto');
 
 use \App\Entity\Produto;
+use \App\Entity\Categoria;
 
 //VALIDAÇÃO DO ID
 if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
@@ -15,6 +16,9 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 //CONSULTA O PRODUTO
 $produto = Produto::getProduto($_GET['id']);
 
+//BUSCAR CATEGORIAS 
+$categorias = Categoria::getCategorias();
+
 //VALIDAÇÃO DO PRODUTO
 if (!$produto instanceof Produto) {
   header('location: index.php?status=error');
@@ -22,11 +26,11 @@ if (!$produto instanceof Produto) {
 }
 
 //VALIDAÇÃO DO POST
-if (isset($_POST['nome'], $_POST['preco'], $_POST['categoria'])) {
+if (isset($_POST['nome'], $_POST['preco'], $_POST['categoria_id'])) {
 
   $produto->nome= $_POST['nome'];
   $produto->preco = $_POST['preco'];
-  $produto->categoria_id= $_POST['categoria'];
+  $produto->categoria_id= $_POST['categoria_id'];
   $produto->atualizar();
 
   header('location: index.php?status=success');

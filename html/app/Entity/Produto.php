@@ -40,7 +40,6 @@ class Produto
   public function cadastrar()
   {
     // INSERIR PRODUTO NO BANCO DE DADOS
-    $db = new Database('produtos');
 
     $db = new Database('produtos');
     $this->id = $db->insert([

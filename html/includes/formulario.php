@@ -1,5 +1,16 @@
 <main>
 
+  <?php
+
+  $lista = '';
+
+  foreach ($categorias as $categoria) {
+    $lista .= '<option value="' . $categoria->id . '">' . $categoria->titulo . '</option>';
+  }
+
+  ?>
+
+
   <section>
     <a href="index.php">
       <button class="btn btn-dark mt-4">
@@ -27,9 +38,7 @@
           <label for="categoria" class="form-label">Categoria</label>
           <select name="categoria_id" class="form-select" aria-label="Default select example">
             <option selected>Selecionar</option>
-            <!-- <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option> -->
+            <?= $lista ?>
           </select>
         </div>
 

@@ -28,7 +28,6 @@ class Categoria
   public function cadastrar()
   {
     // INSERIR CATEGORIA NO BANCO DE DADOS
-    $db = new Database('categorias');
 
     $db = new Database('categorias');
     $this->id = $db->insert([
