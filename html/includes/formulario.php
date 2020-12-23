@@ -19,19 +19,19 @@
     </a>
 
     <h2 class="mt-3">
-      Cadastrar produtos
+      <?=TITLE?>
     </h2>
 
     <form method="post">
       <div class="form-group">
         <div class="mb-3">
           <label for="nome" class="form-label">Nome</label>
-          <input name="nome" type="text" class="form-control" id="nome" placeholder="Nome do produto">
+          <input name="nome" type="text" class="form-control" id="nome" placeholder="Nome do produto" value="<?=$produto->nome?>">
         </div>
 
         <div class="mb-3">
           <label for="preco" class="form-label">Preço</label>
-          <input name="preco" type="number" class="form-control" id="preco" placeholder="Preço do produto">
+          <input name="preco" type="number" class="form-control" id="preco" placeholder="Preço do produto" value="<?=$produto->preco?>">
         </div>
 
         <div class="mb-3">

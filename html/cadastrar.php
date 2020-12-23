@@ -1,6 +1,8 @@
 <?php
 
-include __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
+
+define('TITLE', 'Cadastrar produto');
 
 use \App\Entity\Produto;
 use \App\Entity\Categoria;
@@ -15,6 +17,7 @@ if (isset($_POST['nome'], $_POST['preco'], $_POST['categoria_id'])) {
   $novo_produto->nome = $_POST['nome'];
   $novo_produto->preco = $_POST['preco'];
   $novo_produto->categoria_id = $_POST['categoria_id'];
+  $novo_produto->cadastrar();
 
   header('location: index.php?status=success');
 
