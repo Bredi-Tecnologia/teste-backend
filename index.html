@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+</head>
+
+<body>
+ 
+  <!-- Sidenav-->
+  <ul class="sidenav sidenav-fixed indigo darken-4" id="mobile-demo">
+    <img src="images/logo.png" width="200" height="200" style="margin-left: 50px;" />
+    <li><a href="index.html">
+        <p class="white-text">Inserir Produtos</p>
+      </a></li>
+    <li><a href="alterar.php">
+        <p class="white-text">Alterar Registros</p>
+      </a></li>
+
+  </ul>
+
+  <!-- Corpo do Site-->
+
+  <main style="padding-left: 350px;">
+
+    <h1>Inserir Produtos</h1>
+
+    <div class="row">
+      <!-- Formulário para cadastrar produtos. será enviado para um arquivo 
+        PHP dentro de uma pasta reservada para scripts PHP e páginas mistas HTML/PHP.
+      Lembrando: para o campo Preço, aceita-se vírgula para representar os decimais. Nunca ponto. -->
+      <form class="col s12" method="POST" action="php/insert.php">
+        <div class="input-field col s12">
+          <select name="categ">
+            <option value="" disabled selected>-------------</option>
+            <option value="2">Eletrodomésticos</option>
+            <option value="3">Celulares</option>
+            <option value="4">Alimentos</option>
+            <option value="5">Informática</option>
+          </select>
+          <label>Categoria de Produto</label>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">bookmark</i>
+            <input placeholder="Ex: Máquina de Lavar..." id="first_name" type="text" class="validate" name="nome">
+            <label for="first_name">Nome do Produto</label>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">attach_money</i>
+            <input placeholder="Ex: 2.500" id="last_name" type="text" class="validate" name="preco">
+            <label for="last_name">Preço</label>
+          </div>
+        </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Salvar
+      <i class="material-icons right">send</i>
+    </button>
+    <button class="btn waves-effect waves-light" type="reset" name="action">Limpar
+      <i class="material-icons right">edit</i>
+    </button>
+    </form>
+    <!-- Fim do Formulário-->
+    </div>
+  </main>
+
+  <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <!-- Funções Javascript que ativam alguns efeitos no formulário da página feito com o Materialize CSS-->
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('select').formSelect();
+    });
+  </script>
+</body>
+</html>
