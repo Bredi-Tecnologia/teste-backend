@@ -1,37 +1,32 @@
-# Teste back-end PHP, MYSQL, HTML, CSS e JAVASCRIPT
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-# IMPORTANTE
-```sh 
-Prazo de entrega: 12/03/2021
-```
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+</p>
 
-# Regras
- - Orientação a objetos.
- - Indentação e comentários (caso precise).
- - Criação do banco de dados.
- - Criar crud (visualizar, cadastrar, alterar e excluir).
+Este projeto é a resposta da prova baseado em laravel 8
 
-# Cenário
+## Instruções para Rodar
 
- - Um cliente precisa em seu painel de controle um módulo simples de cadastro de produto, em que cada produto está relacionado a uma tabela chamada 'categorias' (script da tabela categorias está abaixo) :
- ```sh
-   CREATE TABLE `categorias` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `titulo` VARCHAR(190) NOT NULL,
-  PRIMARY KEY (`id`)
-  )
-  ENGINE=InnoDB;
-  INSERT INTO `categorias` (`id`, `titulo`) VALUES (4, 'Alimentos');
-  INSERT INTO `categorias` (`id`, `titulo`) VALUES (5, 'Informática');
-  INSERT INTO `categorias` (`id`, `titulo`) VALUES (2, 'Eletrodomésticos');
-  INSERT INTO `categorias` (`id`, `titulo`) VALUES (3, 'Celulares');
- ```
+- git clone repositorio
+
+- Editar .env apartir de .env.example
+
+- composer install
+
+- php artisan key:generate
+
+- php artisan migrate
+
+- php artisan db:seed
+
+- php artisan serve
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 
-# Deveres
- - Tela de cadastro de produtos (listar, editar e excluir).
- - Criar a tabela de produtos com os seguintes campos => (id, categoria_id, nome, preço).
- - Caso necessário utilize javascript no layout, será um diferencial.
-
-# Conclusão
-- Após finalizar solicite um pull request nesse repositório ou envie um e-mail para contato@bredi.com.br com os seus dados.
