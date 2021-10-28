@@ -27,12 +27,15 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
+                  @foreach($produtos as $produto)
+                    <tr>
+                        <td>{{ $produto->nome }}</td>
+                        <td>{{ $produto->categoria_id }}</td>
+                        <td>{{ $produto->preco }}</td>
+                        <td><a href="{{ url('/editar') }}?id={{$produto->id}}">Editar</a></td>
+                        <td><a href="{{ url('/excluir') }}?id={{$produto->id}}">Excluir</a></td>
+                    </tr>
+                  @endforeach
                 </tbody>
               </table>
         </div>
