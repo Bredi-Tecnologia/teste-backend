@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/', [\App\Http\Controllers\ProdutosController::class, 'index']);
+Route::get('/create', [\App\Http\Controllers\ProdutosController::class, 'create']);
+Route::post('/save', [\App\Http\Controllers\ProdutosController::class, 'save']);
+Route::get('/edit/{id}', [\App\Http\Controllers\ProdutosController::class, 'edit']);
+Route::post('/update', [\App\Http\Controllers\ProdutosController::class, 'update']);
+Route::get('/delete/{id}', [\App\Http\Controllers\ProdutosController::class, 'delete']);

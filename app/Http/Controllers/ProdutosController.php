@@ -4,26 +4,34 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Entity\Produtos;
-use Illuminate\Support\Str;
 use Exception;
 
 class ProdutosController extends Controller{
     public function index(){
-        $produtos = DB::table('produtos')
+        $produtos = DB::table('produtos as p')
+            ->join('categorias as c', 'c.id', '=', 'p.categoria_id')
             ->whereNull('deleted_at')
             ->select([
-                'id',
-                'categoria_id',
-                'nome',
-                'preco',
+                'p.id',
+                'c.titulo',
+                'p.nome',
+                'p.preco',
                 DB::raw("to_char(created_at, 'DD/MM/YYYY') as created_at")
             ])
             ->orderByDesc("created_at")
             ->get();
 
-        return view("welcome", compact('produtos'));
+        return view("home", compact('produtos'));
     }
-
+    public function create(){
+        $categorias = DB::table('categorias')
+        ->select([
+            'id',
+            'titulo'
+        ])
+        ->get();
+        return view("create", compact('categorias'));
+    }
     public function save(Request $request)
     {
         $request->validate([
@@ -33,15 +41,26 @@ class ProdutosController extends Controller{
         ]);
 
         $cadastro = new Produtos();
-        $cadastro->cadastro_id = $request->cadastro_id;
+
+        $cadastro->categoria_id = $request->categoria_id;
         $cadastro->nome = $request->nome;
         $cadastro->preco = $request->preco;
-        $cadastro->created_at = date('Y-m-d H:i:s');
 
         $cadastro->save();
+        // return response()->json(['message' => 'Dados registrados com sucesso']); 
+        return redirect('/');
 
-        return response()->json(['message' => 'Dados registrados com sucesso']);
+    }
+    public function edit($id){
+        $produtos = Produtos::findOrfail($id);
 
+        $categorias = DB::table('categorias')
+        ->select([
+            'id',
+            'titulo'
+        ])
+        ->get();
+        return view("edit", compact('produtos', 'categorias'));
     }
 
     public function update(Request $request)
@@ -52,39 +71,28 @@ class ProdutosController extends Controller{
             'preco' => 'required'
         ]);
 
-        $a = null;
-
-        try {
+        // try {
             $editar = Produtos::find($request->id);
             $editar->categoria_id = $request->categoria_id;
             $editar->nome = $request->nome;
             $editar->preco = $request->preco;
-            $editar->created_at = date('Y-m-d H:i:s');
 
             $editar->save();
             
-            return response()->json(['message' => 'Dados registrados com sucesso']);
-        } catch(Exception $ex) {
-            $error = [
-                'erros' => [
-                    'descricao' => 'Erro ao atualizar os dados. '.$ex->getMessage()
-                ]
-            ];
-
-            return response()->json([$error, 500]);
-        }
+            // return response()->json(['message' => 'Dados registrados com sucesso']);
+            return redirect('/');
     }
 
     public function delete(Produtos $id)
     {
         $id->delete();
+        return redirect('/');
     }
 
-    public function grid(Request $titulo)
+    public function grid(Request $nome)
     {
-        $sql = DB::table('institucional')
-            ->where('titulo', $titulo);
-
+        $sql = DB::table('produtos')
+        ->where('nome', $nome);
         return $sql->get();
     }
 }

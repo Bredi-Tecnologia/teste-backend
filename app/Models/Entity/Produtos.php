@@ -9,5 +9,5 @@ class Produtos extends Model
     use SoftDeletes;
 
     protected $table = "produtos";
-    public $timestamps = false;
+
 }
