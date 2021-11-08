@@ -4,21 +4,18 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProdutos extends Migration
+class CreateCategorias extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    protected $connection = 'sqlite';
     public function up()
     {
-        Schema::create('produtos', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->string('categoria_id');
-            $table->decimal('preco', 10, 2);
+            $table->string('titulo');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateProdutos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produtos');
+        Schema::dropIfExists('categorias');
     }
 }

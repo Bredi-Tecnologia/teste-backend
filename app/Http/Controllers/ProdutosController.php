@@ -16,7 +16,7 @@ class ProdutosController extends Controller{
                 'c.titulo',
                 'p.nome',
                 'p.preco',
-                DB::raw("to_char(created_at, 'DD/MM/YYYY') as created_at")
+                DB::raw("date(p.created_at, 'DD/MM/YYYY') as created_at")
             ])
             ->orderByDesc("created_at")
             ->get();
