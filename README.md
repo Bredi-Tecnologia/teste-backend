@@ -1,37 +1,44 @@
-# Teste back-end PHP, MYSQL, HTML, CSS e JAVASCRIPT
+# Teste back-end PHP/Laravel
 
-# IMPORTANTE
-```sh 
-Prazo de entrega: 12/03/2021
-```
-
-# Regras
- - Orientação a objetos.
- - Indentação e comentários (caso precise).
- - Criação do banco de dados.
- - Criar crud (visualizar, cadastrar, alterar e excluir).
-
-# Cenário
-
- - Um cliente precisa em seu painel de controle um módulo simples de cadastro de produto, em que cada produto está relacionado a uma tabela chamada 'categorias' (script da tabela categorias está abaixo) :
- ```sh
-   CREATE TABLE `categorias` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `titulo` VARCHAR(190) NOT NULL,
-  PRIMARY KEY (`id`)
-  )
-  ENGINE=InnoDB;
-  INSERT INTO `categorias` (`id`, `titulo`) VALUES (4, 'Alimentos');
-  INSERT INTO `categorias` (`id`, `titulo`) VALUES (5, 'Informática');
-  INSERT INTO `categorias` (`id`, `titulo`) VALUES (2, 'Eletrodomésticos');
-  INSERT INTO `categorias` (`id`, `titulo`) VALUES (3, 'Celulares');
- ```
+Foi criado um CRUD para com a tabela produtos e categorias, onde o id de categoria era a chave estrangeira de produtos com categoria_id
 
 
-# Deveres
- - Tela de cadastro de produtos (listar, editar e excluir).
- - Criar a tabela de produtos com os seguintes campos => (id, categoria_id, nome, preço).
- - Caso necessário utilize javascript no layout, será um diferencial.
+Create:
 
-# Conclusão
-- Após finalizar solicite um pull request nesse repositório ou envie um e-mail para contato@bredi.com.br com os seus dados.
+
+<img src="/img/cadastrar.jpeg" alt="" width="600px">
+
+
+Read:
+
+
+<img src="/img/tabelas.jpeg" alt="" width="600px">
+<img src="/img/tabelas.jpeg" alt="" width="600px">
+
+
+Update:
+
+
+<img src="/img/editar.jpeg" alt="" width="600px">
+
+
+Delete:
+
+
+<img src="/img/excluir.jpeg" alt="" width="600px">
+
+
+Tabelas do Banco de dados:
+
+
+<img src="/img/produtos.jpeg" alt="" width="600px">
+<img src="/img/categorias.jpeg" alt="" width="600px">
+
+
+Script do banco de dados:
+https://www.dropbox.com/sh/w7fwwedtjm4y1kl/AADD7zVwyTb45Wf1CGDD41rXa?dl=0
+
+
+Optei por usar o Update e o Delete como item para melhor visualização, o Delete não possui tela somente o alert para avisar se funcionou.
+# Tecnologias: 
+PHP, Laravel, PostgreSQL, HTML, Bootstrap e CSS.
