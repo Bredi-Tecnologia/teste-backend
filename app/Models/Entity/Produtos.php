@@ -8,6 +8,6 @@ class Produtos extends Model
 {
     use SoftDeletes;
 
-    protected $table = "produtos";
-
+    protected $produtos = "produtos";
+    protected $categorias = "categorias";
 }

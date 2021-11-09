@@ -1,0 +1,22 @@
+.container{
+    margin-top: 1%;
+}
+.navbar-brand{
+    margin-left: 1%;
+}
+
+label{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.btn{
+    margin-right: 1%;
+}
+a{
+    color: rgb(130, 164, 238);
+    font-weight: 400;
+    text-decoration: none;
+}
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+}
