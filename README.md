@@ -41,5 +41,4 @@ https://www.dropbox.com/sh/w7fwwedtjm4y1kl/AADD7zVwyTb45Wf1CGDD41rXa?dl=0
 
 Optei por usar o Update e o Delete como item para melhor visualização, o Delete não possui tela somente o alert para avisar se funcionou.
 # Tecnologias: 
-PostgreSQL
-Bootstrap e CSS
+PHP, Laravel, PostgreSQL, HTML, Bootstrap e CSS.
