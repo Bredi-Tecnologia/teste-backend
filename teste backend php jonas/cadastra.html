@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cadastra</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+    <main style="align-items: center 350px;" >
+        <a href="./index.html">
+            <p class="white-text">retorna para o menu</p>
+            </a>
+    <h1>cadastra</h1>
+    <div class="row">
+        <form class ="cad-produto" method="POST" action="php/cadastra2.php">
+            <div class="input-field car-produto">
+                <label>tipos de produto</label><br><br>
+            <!--selecior a categoria do produto-->
+                <select name="categ">
+                    <option value="" disabled selected>-------------</option>
+                    <option value="2">Eletrodomésticos</option>
+                    <option value="3">Celulares</option>
+                    <option value="4">Alimentos</option>
+                    <option value="5">Informática</option>
+            </select> 
+            </div>
+            <br><br>
+            <!--Receber informações do produto-->
+            <div class="row">
+                <div class="input-field car-produto">
+                    <label for="nomeProduto">Nome do Produto</label><br><br>
+                    <input placeholder="nome do produto" id="nome" type="text" class="validate" name="nome">
+                </div><br>
+                <div class="input-field car-produto">
+                    <label for="valorProduto">Preço</label><br><br>
+                    <input placeholder="valor do produto" id="preco" type="text" class="validate" name="preco">
+                    
+                </div>
+            </div><br>
+            <!--Botão para cadastro do protuto-->
+            <button class="btn waves-effect waves-light" type="submit" name="action">cadastra</button>
+        </form>
+    </div>
+    </main>
+<script src="./assets/js/cadastrojs.js"></script>
+</body>
+</html>
